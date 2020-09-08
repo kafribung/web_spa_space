@@ -11,4 +11,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::namespace('API')->group(function(){
     Route::get('about', 'AboutController');
     Route::get('blog', 'BlogController@index');
+    Route::get('blog/{blog:slug}', 'BlogController@show');
 });

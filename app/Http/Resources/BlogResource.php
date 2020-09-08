@@ -16,7 +16,8 @@ class BlogResource extends JsonResource
     {
         return [
             'title' => $this->title,
-            'description' => \Str::limit($this->description, 50) ,
+            'description' => \Str::limit($this->description, 50),
+            'description_2' => $this->description,
             'slug'   => \Str::slug($this->slug),
             'user'  => $this->user->name,
             'created_at' => $this->created_at->format('d M, Y')

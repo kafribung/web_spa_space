@@ -2153,10 +2153,7 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/Navbar */ "./resources/js/components/Navbar.vue");
 /* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Footer */ "./resources/js/components/Footer.vue");
-var _data$mounted$methods;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+//
 //
 //
 //
@@ -2178,10 +2175,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 
 
-/* harmony default export */ __webpack_exports__["default"] = (_data$mounted$methods = {
+/* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      blogs: []
+      blog: {}
     };
   },
   mounted: function mounted() {
@@ -2191,19 +2188,18 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     getData: function getData() {
       var _this = this;
 
-      this.axios.get('/api/blog').then(function (response) {
-        _this.blogs = response.data.data;
+      this.axios.get("/api/blog/".concat(this.$route.params.slug)).then(function (response) {
+        _this.blog = response.data.data;
       })["catch"](function (error) {
         return console.log(error);
       });
     }
+  },
+  components: {
+    Navbar: _components_Navbar__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Footer: _components_Footer__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
-}, _defineProperty(_data$mounted$methods, "mounted", function mounted() {
-  console.log(this.$route.params.slug);
-}), _defineProperty(_data$mounted$methods, "components", {
-  Navbar: _components_Navbar__WEBPACK_IMPORTED_MODULE_0__["default"],
-  Footer: _components_Footer__WEBPACK_IMPORTED_MODULE_1__["default"]
-}), _data$mounted$methods);
+});
 
 /***/ }),
 
@@ -2218,6 +2214,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Navbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/Navbar */ "./resources/js/components/Navbar.vue");
 /* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Footer */ "./resources/js/components/Footer.vue");
+//
 //
 //
 //
@@ -21205,40 +21202,46 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    [_c("Navbar"), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("Footer")],
+    [
+      _c("Navbar"),
+      _vm._v(" "),
+      _c("main", { staticClass: "mt-5 px-10 h-screen" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "flex flex-col items-center mx-auto" }, [
+            _c(
+              "div",
+              {
+                staticClass: "text-2xl font-extrabold underline text-blue-400"
+              },
+              [_vm._v(_vm._s(_vm.blog.title))]
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "text-sm font-light  italic text-dark" }, [
+              _vm._v(
+                "[" +
+                  _vm._s(_vm.blog.user) +
+                  " => " +
+                  _vm._s(_vm.blog.created_at) +
+                  "]"
+              )
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex justify-center mx-auto md:mx-64" }, [
+              _c("div", {
+                staticClass: "mt-2 leading-loose tracking-widest  font-light",
+                domProps: { innerHTML: _vm._s(_vm.blog.description_2) }
+              })
+            ])
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("Footer")
+    ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("main", { staticClass: "mt-5 px-10 h-screen" }, [
-      _c("div", { staticClass: "container" }, [
-        _c("div", { staticClass: "flex flex-col items-center mx-auto" }, [
-          _c(
-            "div",
-            { staticClass: "text-2xl font-extrabold underline text-blue-400" },
-            [_vm._v("Lorem ipsum dolor sit amet.")]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex justify-center mx-auto md:mx-64" }, [
-            _c(
-              "div",
-              { staticClass: "mt-2 leading-loose tracking-widest  font-light" },
-              [
-                _vm._v(
-                  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum vel earum reprehenderit atque! Neque eligendi vitae laudantium odit, ipsam reprehenderit animi. Velit dolorem accusantium eligendi, illum nobis quidem quibusdam repudiandae illo doloremque saepe ipsam rerum placeat culpa quia fugiat tempora dolor, in perferendis recusandae libero possimus numquam itaque quis! Repellat eaque officia odit vitae iste exercitationem distinctio dignissimos magnam numquam."
-                )
-              ]
-            )
-          ])
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -21283,13 +21286,26 @@ var render = function() {
                   "a",
                   {
                     staticClass:
-                      "font-light text-lg hover:underline hover:font-italic",
+                      "font-light block text-lg hover:underline hover:font-italic",
                     attrs: {
                       href: "mailto:kafribung07@gmail.com",
                       target: "_blank"
                     }
                   },
                   [_vm._v("kafribung07@gmail.com")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "a",
+                  {
+                    staticClass:
+                      "font-light text-lg hover:underline hover:font-italic",
+                    attrs: {
+                      href: "mailto:60900117001@uin-alauddin.ac.id",
+                      target: "_blank"
+                    }
+                  },
+                  [_vm._v("60900117001@uin-alauddin.ac.id")]
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "font-light text-lg mt-2" }, [
@@ -21299,7 +21315,7 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "font-serif leading-loose my-5 font-light" },
-                  [_vm._v("Menjadi programmer sebab pernah dihianati :v.")]
+                  [_vm._v("Menjadi programmer sebab pernah dihianati :v")]
                 )
               ])
             ])
