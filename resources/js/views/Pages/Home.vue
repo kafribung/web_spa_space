@@ -1,0 +1,36 @@
+<template>
+    <div>
+        <Navbar />
+        <!-- Hero -->
+        <main class="mt-12 px-10 h-screen">
+            <div class="container">
+                <div class="flex flex-col items-center w-full">
+                    <img class="rounded-full" width="200px" title="Kafri Bung" :src="'img_users/kafri.png'" alt="Error">
+                    <div class="font-extrabold text-2xl mt-2">Kafriansyah</div>
+                    <div class="flex justify-center  mt-1">
+                        <div class="font-light font-serif text-xl mx-auto">He/Him. 21  y/o Web Developer,  Traveling and Foodies . More about me on <a href="" class="text-blue-400 hover:font-semibold">Now</a>. My thought visible on <a href="" class="text-blue-400 hover:font-semibold">Blogs</a> </div>
+                    </div>
+                    <div class="mt-5">
+                        <a href="" class="text-3xl mr-5 hover:text-blue-400"><i class="fa fa-github"></i></a>
+                        <a href="" class="text-3xl mr-5 hover:text-blue-400"><i class="fa fa-instagram"></i></a>
+                        <a href="" class="text-3xl mr-5 hover:text-blue-400"><i class="fa fa-linkedin-square"></i></a>
+                        <a href="" class="text-3xl mr-5 hover:text-blue-400"><i class="fa fa-twitter-square"></i></a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- End Hero -->
+        <Footer />
+    </div>
+</template>
+
+<script>
+import Navbar from "../../components/Navbar";
+import Footer from '../../components/Footer'
+export default {
+    components: {
+        Navbar,
+        Footer
+    }
+};
+</script>
