@@ -12,4 +12,5 @@ Route::namespace('API')->group(function(){
     Route::get('about', 'AboutController');
     Route::get('blog', 'BlogController@index');
     Route::get('blog/{blog:slug}', 'BlogController@show');
+    Route::get('donwload/cv', 'CvController@index');
 });

@@ -1999,6 +1999,11 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     showNavbar: function showNavbar() {
       this.toogle = !this.toogle;
+    },
+    getCv: function getCv() {
+      this.axios.get('api/donwload/cv').then(function (response) {
+        conslole.log('ok');
+      });
     }
   }
 });
@@ -3033,13 +3038,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "mt-3 md:mt-0" }, [
       _c(
-        "button",
+        "a",
         {
           staticClass:
             "bg-white border border-black rounded-md shadow-sm text-black text-sm py-1 px-2 hover:border-blue-400 hover:font-bold",
-          attrs: { type: "submit" }
+          attrs: { href: "api/donwload/cv", target: "_blank" }
         },
-        [_vm._v("Get CV")]
+        [_vm._v("Get Cv")]
       )
     ])
   },
@@ -3049,13 +3054,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", {}, [
       _c(
-        "button",
+        "a",
         {
           staticClass:
-            "py-1 px-4 border rounded text-black border-blue-400 hover:text-blue-400 hover:border-black focus:outline-none uppercase",
-          attrs: { type: "submit" }
+            "py-1 px-4 border rounded text-black border-blue-400 hover:text-blue-400 hover:border-black focus:outline-none",
+          attrs: { href: "api/donwload/cv", target: "_blank" }
         },
-        [_vm._v("cv")]
+        [_vm._v("Get Cv")]
       )
     ])
   }
@@ -3086,7 +3091,7 @@ var render = function() {
     [
       _c("Navbar"),
       _vm._v(" "),
-      _c("main", { staticClass: "mt-5 px-10 h-screen" }, [
+      _c("main", { staticClass: "mt-5 mb-10 px-10" }, [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "flex flex-col items-center w-full" }, [
             _c("div", { staticClass: "text-xl underline text-blue-400 mb-5" }, [
@@ -3148,7 +3153,7 @@ var render = function() {
     [
       _c("Navbar"),
       _vm._v(" "),
-      _c("main", { staticClass: "mt-5 px-10 h-screen" }, [
+      _c("main", { staticClass: "mt-5 px-10" }, [
         _c("div", { staticClass: "container" }, [
           _c(
             "div",
@@ -3270,7 +3275,7 @@ var render = function() {
     [
       _c("Navbar"),
       _vm._v(" "),
-      _c("main", { staticClass: "mt-5 px-10 h-screen" }, [
+      _c("main", { staticClass: "mt-5 mb-10 px-10 h-screen" }, [
         _c("div", { staticClass: "container" }, [
           _c("div", { staticClass: "flex flex-col items-center mx-auto" }, [
             _c(

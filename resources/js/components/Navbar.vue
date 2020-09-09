@@ -27,7 +27,7 @@
                         </li>
                     </div>
                     <div class="mt-3 md:mt-0">
-                        <button  type="submit" class="bg-white border border-black rounded-md shadow-sm text-black text-sm py-1 px-2 hover:border-blue-400 hover:font-bold">Get CV</button>
+                        <a href="api/donwload/cv" target="_blank" class="bg-white border border-black rounded-md shadow-sm text-black text-sm py-1 px-2 hover:border-blue-400 hover:font-bold">Get Cv</a>
                     </div>
                 </div>
                 <!-- Navbar Mobile -->
@@ -39,7 +39,7 @@
                         <router-link :to="'/contact'" class="block md:mr-0 hover:text-blue-400">Contact</router-link>
                     </div>
                     <div class="">
-                        <button  type="submit" class="py-1 px-4 border rounded text-black border-blue-400 hover:text-blue-400 hover:border-black focus:outline-none uppercase">cv</button>
+                        <a href="api/donwload/cv" target="_blank" class="py-1 px-4 border rounded text-black border-blue-400 hover:text-blue-400 hover:border-black focus:outline-none">Get Cv</a>
                     </div>
                 </div>
             </nav>
@@ -58,6 +58,13 @@ export default {
     methods: {
         showNavbar() {
             this.toogle = !this.toogle;
+        },
+        getCv(){
+            this.axios
+            .get('api/donwload/cv')
+            .then((response) => {
+                conslole.log('ok');
+            })
         }
     },
 };

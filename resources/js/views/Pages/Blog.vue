@@ -2,7 +2,7 @@
     <div>
         <Navbar />
         <!-- Hero -->
-        <main class="mt-5 px-10 h-screen">
+        <main class="mt-5 px-10">
             <div class="container">
                 <div class="flex flex-col items-center w-full">
                     <div class="text-xl  underline text-blue-400 mb-5">My Blog</div>

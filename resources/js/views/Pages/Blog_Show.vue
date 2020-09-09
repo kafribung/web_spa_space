@@ -2,7 +2,7 @@
     <div>
         <Navbar />
         <!-- Hero -->
-        <main class="mt-5 px-10 h-screen">
+        <main class="mt-5 mb-10 px-10 h-screen">
             <div class="container">
                 <div class="flex flex-col items-center mx-auto">
                     <div class="text-2xl font-extrabold underline text-blue-400">{{ blog.title }}</div>
