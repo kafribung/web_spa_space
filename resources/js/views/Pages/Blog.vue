@@ -45,11 +45,14 @@ export default {
     mounted() {
         this.getData()
     },
+    
     methods: {
         getData(){
-             this.axios
+            this.axios
             .get('/api/blog')
-            .then((response) => {this.blogs = response.data.data})
+            .then((response) => {
+                this.blogs = response.data.data
+            })
             .catch(error => console.log(error))
         }
     },
